@@ -1,6 +1,5 @@
-FROM tomcat:9-jre8
+FROM anapsix/alpine-java
 
-VOLUME /usr/
-ADD spring.war /usr/local/tomcat/webapps/
-CMD ["catalina.sh", "run"]    
-EXPOSE 80
+COPY app.jar /home/app.jar
+EXPOSE 8080
+CMD ["java","-jar","/home/app.jar"]
